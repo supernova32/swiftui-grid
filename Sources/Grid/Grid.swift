@@ -6,8 +6,13 @@ public struct Grid<Content>: View where Content: View {
     @State var preferences: GridPreferences = GridPreferences(size: .zero, items: [])
     let items: [GridItem]
     
+    init(items: [GridItem]) {
+        self.items = items
+    }
+    
     public var body: some View {
-        GeometryReader { geometry in
+        print("Update")
+        return GeometryReader { geometry in
             ZStack(alignment: .topLeading) {
                 ForEach(self.items) { item in
                     item.view
@@ -15,8 +20,15 @@ public struct Grid<Content>: View where Content: View {
                             width: self.style.autoWidth ? self.preferences[item.id]?.bounds.width : nil,
                             height: self.style.autoHeight ? self.preferences[item.id]?.bounds.height : nil
                         )
-                        .alignmentGuide(.leading, computeValue: { _ in geometry.size.width - (self.preferences[item.id]?.bounds.origin.x ?? 0) })
-                        .alignmentGuide(.top, computeValue: { _ in geometry.size.height - (self.preferences[item.id]?.bounds.origin.y ?? 0) })
+                        .alignmentGuide(.leading) { _ in
+                            let guide = geometry.size.width - (self.preferences[item.id]?.bounds.origin.x ?? 0)
+                            return guide
+                        }
+                        .alignmentGuide(.top) { _ in
+                            print(self.preferences.items)
+                            let guide = geometry.size.height - (self.preferences[item.id]?.bounds.origin.y ?? 0)
+                            return guide
+                        }
                         .background(GridPreferencesModifier(id: item.id, bounds: self.preferences[item.id]?.bounds ?? .zero))
                         .anchorPreference(key: GridItemBoundsPreferencesKey.self, value: .bounds) { [geometry[$0]] }
                 }

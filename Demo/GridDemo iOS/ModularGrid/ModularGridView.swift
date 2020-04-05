@@ -12,7 +12,6 @@ struct ModularGridView: View {
                 Card(title: "\(item.number)", color: item.color)
             }
             .padding(8)
- 
         }
         .navigationBarTitle("Modular Grid", displayMode: .inline)
         .navigationBarItems(

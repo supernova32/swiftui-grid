@@ -17,6 +17,7 @@ public struct ModularGridStyle: GridStyle {
     }
     
     public func transform(preferences: inout GridPreferences, in size: CGSize) {
+        print(size)
         let computedTracksCount = self.axis == .vertical ?
             tracksCount(
                 tracks: self.columns,
@@ -73,7 +74,7 @@ public struct ModularGridStyle: GridStyle {
                 )
             }
         }
-
+        print(newPreferences)
         return newPreferences
     }
 }

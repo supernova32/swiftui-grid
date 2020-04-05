@@ -33,6 +33,13 @@ struct ContentView: View {
                             Text("Static Grid")
                         }
                     }
+                    
+                    NavigationLink(destination: BiaxialScrollGridView()) {
+                        HStack {
+                            Image(systemName: "circle.grid.hex.fill")
+                            Text("Biaxial Scroll Grid")
+                        }
+                    }
                 }
             }
             .listStyle(

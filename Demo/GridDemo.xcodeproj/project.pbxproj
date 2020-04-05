@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA40F7C0243A8B1F008E4C9E /* BiaxialScrollGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA40F7BF243A8B1F008E4C9E /* BiaxialScrollGridView.swift */; };
 		FA4266822433CA4A0034CB7B /* Grid in Frameworks */ = {isa = PBXBuildFile; productRef = FA4266812433CA4A0034CB7B /* Grid */; };
 		FA4266842433CAFE0034CB7B /* Grid in Frameworks */ = {isa = PBXBuildFile; productRef = FA4266832433CAFE0034CB7B /* Grid */; };
 		FA4266862433CB300034CB7B /* Grid in Frameworks */ = {isa = PBXBuildFile; productRef = FA4266852433CB300034CB7B /* Grid */; };
@@ -117,6 +118,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FA40F7BF243A8B1F008E4C9E /* BiaxialScrollGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiaxialScrollGridView.swift; sourceTree = "<group>"; };
 		FA68D97F2433C98000132A37 /* swiftui-grid */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "swiftui-grid"; path = ..; sourceTree = "<group>"; };
 		FA9FFB6C242FFECD0047D145 /* SectionedGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionedGridView.swift; sourceTree = "<group>"; };
 		FA9FFB6F243005B80047D145 /* SectionedGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionedGridView.swift; sourceTree = "<group>"; };
@@ -216,6 +218,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA40F7BE243A8AEE008E4C9E /* BiaxialScrollGrid */ = {
+			isa = PBXGroup;
+			children = (
+				FA40F7BF243A8B1F008E4C9E /* BiaxialScrollGridView.swift */,
+			);
+			path = BiaxialScrollGrid;
+			sourceTree = "<group>";
+		};
 		FA9FFB6B242FFE510047D145 /* SectionedGrid */ = {
 			isa = PBXGroup;
 			children = (
@@ -276,6 +286,7 @@
 				FA9FFB6E2430057F0047D145 /* SectionedGrid */,
 				FAA2C98823DEB00100FBDE39 /* ModularGrid */,
 				FAA2C98B23DEB00100FBDE39 /* StaggeredGrid */,
+				FA40F7BE243A8AEE008E4C9E /* BiaxialScrollGrid */,
 				FAA2C97B23DEAF9200FBDE39 /* AppDelegate.swift */,
 				FAA2C96B23DEAECC00FBDE39 /* SceneDelegate.swift */,
 				FAA2C96D23DEAECC00FBDE39 /* ContentView.swift */,
@@ -727,6 +738,7 @@
 				FAA2C98F23DEB00100FBDE39 /* ModularGridSettingsView.swift in Sources */,
 				FAA2C98E23DEB00100FBDE39 /* ModularGridView.swift in Sources */,
 				FAC1C78B2430694C00FFA885 /* StaticGridView.swift in Sources */,
+				FA40F7C0243A8B1F008E4C9E /* BiaxialScrollGridView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
