@@ -8,21 +8,23 @@ public struct Grid<Content>: View where Content: View {
     
     public var body: some View {
         GeometryReader { geometry in
-            ZStack(alignment: .topLeading) {
-                ForEach(self.items) { item in
-                    item.view
-                        .frame(
-                            width: self.style.autoWidth ? self.preferences[item.id]?.bounds.width : nil,
-                            height: self.style.autoHeight ? self.preferences[item.id]?.bounds.height : nil
-                        )
-                        .alignmentGuide(.leading, computeValue: { _ in geometry.size.width - (self.preferences[item.id]?.bounds.origin.x ?? 0) })
-                        .alignmentGuide(.top, computeValue: { _ in geometry.size.height - (self.preferences[item.id]?.bounds.origin.y ?? 0) })
-                        .background(GridPreferencesModifier(id: item.id, bounds: self.preferences[item.id]?.bounds ?? .zero))
-                        .anchorPreference(key: GridItemBoundsPreferencesKey.self, value: .bounds) { [geometry[$0]] }
+            ScrollView {
+                ZStack(alignment: .topLeading) {
+                    ForEach(self.items) { item in
+                        item.view
+                            .frame(
+                                width: self.style.autoWidth ? self.preferences[item.id]?.bounds.width : nil,
+                                height: self.style.autoHeight ? self.preferences[item.id]?.bounds.height : nil
+                            )
+                            .alignmentGuide(.leading, computeValue: { _ in geometry.size.width - (self.preferences[item.id]?.bounds.origin.x ?? 0) })
+                            .alignmentGuide(.top, computeValue: { _ in geometry.size.height - (self.preferences[item.id]?.bounds.origin.y ?? 0) })
+                            .background(GridPreferencesModifier(id: item.id, bounds: self.preferences[item.id]?.bounds ?? .zero))
+                            .anchorPreference(key: GridItemBoundsPreferencesKey.self, value: .bounds) { [geometry[$0]] }
+                    }
                 }
-            }
-            .transformPreference(GridPreferencesKey.self) {
-                self.style.transform(preferences: &$0, in: geometry.size)
+                .transformPreference(GridPreferencesKey.self) {
+                    self.style.transform(preferences: &$0, in: geometry.size)
+                }
             }
         }
         .frame(
